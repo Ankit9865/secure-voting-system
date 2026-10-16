@@ -1,0 +1,14 @@
+# secrets
+.env
+# build output
+target/
+node_modules/
+dist/
+# IDE
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+.metadata/

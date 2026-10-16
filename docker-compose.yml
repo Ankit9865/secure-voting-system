@@ -1,0 +1,16 @@
+# Local MySQL for development. The app connects as a limited user, not root.
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+      MYSQL_DATABASE: voting_db
+      MYSQL_USER: ${DB_USERNAME:?Set DB_USERNAME in .env}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:3306:3306"   # reachable from this machine only
+    volumes:
+      - voting_db_data:/var/lib/mysql
+
+volumes:
+  voting_db_data:
